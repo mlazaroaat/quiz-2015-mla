@@ -3,4 +3,5 @@ node_modules
 npm-degub.log
 *~
 quiz.sqlite
+.env
 
