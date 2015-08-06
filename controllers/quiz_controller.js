@@ -10,15 +10,31 @@ exports.load = function(req, res, next, quizId) {
       } else{next(new Error('No existe quizId=' + quizId))}
     }
   ).catch(function(error) {next(error)});
+
 };
 
 // GET /quizes
+// GET /quizez?buscar=texto_a_buscar
 exports.index = function(req,res) {
-   models.Quiz.findAll().then(
+   
+   if (req.query.buscar == undefined) {
+  models.Quiz.findAll().then(
     function(quizes) {
-	res.render('quizes/index',{quizes: quizes, errors: []})
-	}
-	).catch(function(error) {next(error);})
+    res.render('quizes/index',{quizes: quizes, errors: []})
+  }
+  ).catch(function(error) {next(error);})
+ } else {
+    var buscar = '%' + req.query.buscar.replace(/\s/g,"%") + '%';
+    console.log(" Buscar = " + buscar);
+   models.Quiz.findAll(
+        {where: ["pregunta like ?",buscar],
+         order: [['pregunta','ASC']]}
+        ).then(function(quizes) {
+    res.render('quizes/index',{quizes: quizes, errors: []})
+  }
+  ).catch(function(error) {next(error);});
+ }
+
 };
 
 // GET /quizes/:id
