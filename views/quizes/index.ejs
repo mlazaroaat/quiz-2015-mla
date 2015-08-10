@@ -2,6 +2,7 @@
 <% var i; for(i=0;i < quizes.length; i++) { %>
 	<tr>
 	<td><a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a></td>
+  <%if(session.user){%>
 	<td><a href="quizes/<%= quizes[i].id %>/edit"><button type="button">editar</button></a></td>
 	<td>
         <form method="post" action="/quizes/<%= quizes[i].id %>?_method=delete">
@@ -10,6 +11,7 @@
           </button>
        </form>
     </td>
+    <%}%>
 	</tr>
  <% }%>
 </table>
@@ -19,4 +21,6 @@
  <input type="text" name="buscar" /><br>
  <input type="submit" value="Buscar"/>
 </form>
+<%if(session.user){%>
 <a href="/quizes/new"><button type="button">Crear pregunta</button></a>
+<%}%>
