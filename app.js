@@ -43,6 +43,12 @@ app.use(function(req, res, next) {
   next();
 });
 
+// expirar sesión tras tres minutos inactivos  o 180000 milisegundos
+app.use(function (req, res, next) {
+  var tiempo = 180000;
+  req.session.cookie.expires = new Date(Date.now() + tiempo);
+  next();
+});
 
 app.use('/', routes);
 

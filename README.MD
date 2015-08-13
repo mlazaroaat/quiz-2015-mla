@@ -8,6 +8,10 @@
 		- Ejercicio p2p del módulo 7 Fecha 06-08-2015 versión (commit):  p2p Ejercicio Mod 08, que se puede consultar en la dirección de heroku https://quizmla.herokuapp.com/
 	
 		- Ejercicio p2p del módulo 8 Fecha 03-08-2015 versión (commit):  p2p Ejercicio Mod 08, que se puede consultar en la dirección de heroku https://quizmla.herokuapp.com/
+
+		- Ejercicio p2p del módulo 8 Fecha 13-08-2015 versión (commit):  p2p Ejercicio Mod 08, que se puede consultar en la dirección de heroku https://quizmla.herokuapp.com/
+		
+				Nota: Los usuarios - claves de la app, son admin - 1234, pepe - 5678
 	
 		- Despliegue DB en Heroku que se puede consultar en la dirección de heroku https://quizmla-mod07.herokuapp.com/
 
